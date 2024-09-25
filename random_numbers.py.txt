@@ -1,0 +1,37 @@
+import random
+
+def square_center(seed):
+       num_str = str(seed**2).zfill(8)
+    center = int(num_str[2:6]) 
+    return center
+
+def square_mid(seed):
+        num_str = str(seed**2).zfill(8)
+    mid = int(num_str[3:5])
+    return mid
+
+def generate_numbers_center(n):
+    
+    numbers = []
+    seed = random.randint(1000, 9999) 
+    for _ in range(n):
+        seed = square_center(seed)
+        numbers.append(seed)
+    return numbers
+
+def generate_numbers_mid(n):
+        numbers = []
+    seed = random.randint(1000, 9999)     for _ in range(n):
+        seed = square_mid(seed)
+        numbers.append(seed)
+    return numbers
+
+random_numbers_center = generate_numbers_center(100)
+random_numbers_mid = generate_numbers_mid(100)
+
+
+print("Números generados por el método de centros al cuadrado:")
+print(random_numbers_center)
+
+print("\nNúmeros generados por el método de medios cuadrados:")
+print(random_numbers_mid)
